@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     description: "松岡奏磨のポートフォリオ — 開発・探究ケーススタディ",
     type: "website",
   },
+  verification: {
+    google: "-jx8LUvN9aEfYZu__PO0lPdKjUTXWxnOxGPK6eDDFZE",
+  },
 };
 
 export default function RootLayout({
