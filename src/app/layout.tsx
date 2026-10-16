@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   keywords: ["松岡奏磨", "ポートフォリオ", "Web開発", "React", "Next.js", "PWA"],
   authors: [{ name: "Soma Matsuoka" }],
   openGraph: {
-    title: "Soma Matsuoka | Portfolio",
+    title: "松岡 奏磨 (Soma Matsuoka) | Portfolio",
     description: "松岡奏磨のポートフォリオ — 開発・探究ケーススタディ",
     type: "website",
   },
