@@ -32,15 +32,15 @@ export default function AboutSection() {
 
               <div className="space-y-4 text-zinc-300 text-sm leading-relaxed">
                 <p>
-                  滝学園 高校2年。先進技術研究部 部長として、部活動でのプロジェクトリードと技術指導を担当。
+                  滝学園 高校2年。先進技術研究部 部長として、7名の開発チームのプロジェクトリード・技術指導・アーキテクチャ設計を担当。
                 </p>
                 <p>
-                  2026年の創立100周年記念 長月祭（文化祭）において、公式Webアプリの
-                  <strong className="text-white">開発責任者</strong>
-                  を務めました。企画段階からリリース・運用まで一貫して携わり、来場者の体験を最大化するプロダクトを設計・構築しました。
+                  滝学園創立100周年を迎えた2026年、学校初となる
+                  <strong className="text-white">「長月祭 公式Webアプリ」</strong>
+                  の導入を自ら企画・提案し、<strong className="text-cyan-300">開発責任者</strong>を務めました。
                 </p>
                 <p>
-                  フロントエンド開発を中心に、UI/UXデザイン、パフォーマンス最適化、PWA対応など、Webアプリ開発の幅広い領域に取り組んでいます。
+                  テーマ「Next Prologue」のもと、文化祭実行委員会や教員と密に折衝しながら、UI/UX設計・React 19/Vite/PWAによる高速フロントエンド・GASと連携したサーバーレス基盤を構築。ゼロからリリース・当日運用までを完遂しました。
                 </p>
               </div>
             </div>

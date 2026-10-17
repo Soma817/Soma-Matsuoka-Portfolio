@@ -24,11 +24,11 @@ export default function HeroSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
-          <p className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            開発責任者 / 先進技術研究部 部長
+          <p className="text-lg sm:text-xl text-zinc-300 max-w-2xl mx-auto leading-relaxed">
+            滝学園 先進技術研究部 部長
             <br />
-            <span className="text-zinc-500">
-              Web アプリケーション・PWA 開発
+            <span className="text-zinc-400 text-base sm:text-lg">
+              創立100周年記念「長月祭 公式Webアプリ」開発責任者
             </span>
           </p>
         </ScrollReveal>
@@ -39,11 +39,20 @@ export default function HeroSection() {
               href="#project"
               className="group relative px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] hover:scale-105"
             >
-              <span className="relative z-10">プロジェクトを見る</span>
+              <span className="relative z-10">プロジェクト詳細を見る</span>
+            </a>
+            <a
+              href="https://www.taki-hj.ac.jp/students_works/nagatsuki_fes_2026/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass border border-white/10 text-cyan-300 font-semibold text-sm hover:bg-white/10 hover:border-cyan-400/40 hover:scale-105 transition-all duration-300"
+            >
+              <span>長月祭アプリ実機プレビュー</span>
+              <span className="text-xs">↗</span>
             </a>
             <a
               href="#contact"
-              className="px-8 py-3 rounded-full border border-white/10 text-zinc-300 font-semibold text-sm hover:bg-white/5 hover:border-white/20 transition-all duration-300"
+              className="px-6 py-3 rounded-full border border-white/10 text-zinc-400 font-semibold text-sm hover:text-white hover:bg-white/5 hover:border-white/20 transition-all duration-300"
             >
               Contact
             </a>
