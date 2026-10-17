@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Soma Matsuoka | Portfolio",
+  title: "松岡 奏磨 (Soma Matsuoka) | Portfolio",
   description:
     "松岡奏磨のポートフォリオ — 開発責任者・先進技術研究部部長。Webアプリ・PWA開発の実績とケーススタディ。",
   keywords: ["松岡奏磨", "ポートフォリオ", "Web開発", "React", "Next.js", "PWA"],
