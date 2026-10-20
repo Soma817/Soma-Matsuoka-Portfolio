@@ -109,7 +109,7 @@ export default function HeroSection() {
               onClick={handleCopyEmail}
               className="group inline-flex items-center gap-2 px-5 py-3.5 rounded-full border border-white/10 text-zinc-400 font-medium text-sm hover:text-white hover:bg-white/5 hover:border-white/20 transition-all duration-300 active:scale-95"
             >
-              <span>{copied ? "メールをコピーしました！" : "Contact (Email)"}</span>
+              <span>{copied ? "メールをコピーしました！" : "Contact"}</span>
               <span className="text-xs text-zinc-500 group-hover:text-zinc-300">
                 {copied ? "✓" : "📋"}
               </span>
