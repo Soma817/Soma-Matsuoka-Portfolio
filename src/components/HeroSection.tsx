@@ -24,13 +24,16 @@ export default function HeroSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
-          <p className="text-lg sm:text-xl text-zinc-300 max-w-2xl mx-auto leading-relaxed">
-            滝学園 先進技術研究部 部長
-            <br />
-            <span className="text-zinc-400 text-base sm:text-lg">
-              創立100周年記念「長月祭 公式Webアプリ」開発責任者
-            </span>
-          </p>
+          <div className="space-y-2">
+            <p className="text-xl sm:text-2xl font-bold tracking-tight text-white">
+              Full-Stack Developer
+            </p>
+            <p className="text-sm sm:text-base text-zinc-400 max-w-xl mx-auto leading-relaxed">
+              滝学園 高校2年 / 先進技術研究部
+              <br className="hidden sm:inline" />
+              モダンなWeb技術を主軸に、UI/UX設計からバックエンドまで一貫した開発を行っています。
+            </p>
+          </div>
         </ScrollReveal>
 
         <ScrollReveal delay={300}>
@@ -47,7 +50,7 @@ export default function HeroSection() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass border border-white/10 text-cyan-300 font-semibold text-sm hover:bg-white/10 hover:border-cyan-400/40 hover:scale-105 transition-all duration-300"
             >
-              <span>長月祭アプリ実機プレビュー</span>
+              <span>長月祭アプリプレビュー</span>
               <span className="text-xs">↗</span>
             </a>
             <a

@@ -110,7 +110,7 @@ export default function ProjectSection() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 text-white font-bold text-xs shadow-lg hover:shadow-cyan-500/25 hover:scale-105 active:scale-95 transition-all duration-200"
                   >
-                    <span>実稼働アプリを開く</span>
+                    <span>長月祭アプリを開く</span>
                     <span className="text-xs">↗</span>
                   </a>
                 </div>
