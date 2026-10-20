@@ -23,10 +23,10 @@ const projectHighlights = [
     badges: ["PWA Manifest", "Service Worker", "Mobile Drawer", "Scroll Restoration"],
   },
   {
-    category: "Real-time & Zero Server Cost",
-    title: "GAS連携によるリアルタイム配信 (運用費0円)",
-    desc: "サーバーコストをゼロに抑えつつ、Googleスプレッドシート×GASをバックエンドAPIとして活用。混雑度投票・緊急お知らせ・落とし物・FAQをリアルタイム同期。",
-    badges: ["GAS API", "Spreadsheet DB", "Real-time Poll", "Zero Server Cost"],
+    category: "Real-time & High Efficiency",
+    title: "GAS連携によるリアルタイム配信 (高効率・低負荷)",
+    desc: "追加インフラ負荷を抑えつつ、Googleスプレッドシート×GASをバックエンドAPIとして活用。混雑度投票・緊急お知らせ・落とし物・FAQをリアルタイム同期。",
+    badges: ["GAS API", "Spreadsheet DB", "Real-time Poll", "Cost-Effective"],
   },
 ];
 
@@ -146,8 +146,8 @@ export default function ProjectSection() {
                   <div className="text-xs text-zinc-400 mt-1">開発チーム統括</div>
                 </div>
                 <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 text-center">
-                  <div className="text-3xl font-black text-emerald-400 font-mono">0円</div>
-                  <div className="text-xs text-zinc-400 mt-1">GASインフラ運用費</div>
+                  <div className="text-3xl font-black text-emerald-400 font-mono">100%</div>
+                  <div className="text-xs text-zinc-400 mt-1">当日稼働率 (無停止)</div>
                 </div>
               </div>
             </div>
@@ -276,9 +276,9 @@ export default function ProjectSection() {
                       </p>
                     </div>
                     <div className="p-3.5 rounded-xl bg-black/30 border border-white/5 space-y-1.5">
-                      <div className="text-amber-300 font-semibold text-xs">② サーバー運用費ゼロの制約</div>
+                      <div className="text-amber-300 font-semibold text-xs">② 既存資産を活用するインフラ制約</div>
                       <p className="text-zinc-400 text-xs leading-relaxed">
-                        部活動・学校行事の予算制約上、高額なクラウドサーバー費を掛けず、かつ当日数千人の同時接続に耐える構成が求められました。
+                        部活動・学校行事の環境下で、新たな有償クラウド基盤を増設せず、学校サーバーや既存資産を活かして数千人のアクセスに耐えうる設計が求められました。
                       </p>
                     </div>
                     <div className="p-3.5 rounded-xl bg-black/30 border border-white/5 space-y-1.5">
@@ -353,7 +353,7 @@ export default function ProjectSection() {
                         バックエンド &amp; データパイプライン
                       </div>
                       <p className="text-zinc-300">
-                        <strong>Google Apps Script (GAS) + スプレッドシート:</strong> サーバー費用完全0円で運用。静的バンドル(data.json) + 動的API + LocalStorageの3層耐障害データフロー。
+                        <strong>Google Apps Script (GAS) + スプレッドシート:</strong> 既存リソースを最大活用したサーバーレス運用。静的バンドル(data.json) + 動的API + LocalStorageの3層耐障害データフロー。
                       </p>
                     </div>
                   </div>
@@ -424,9 +424,9 @@ export default function ProjectSection() {
                       <div className="text-[11px] text-zinc-400 mt-1">タスク分担と品質管理の徹底</div>
                     </div>
                     <div className="p-4 rounded-xl bg-cyan-500/5 border border-cyan-500/20 text-center">
-                      <div className="text-2xl font-black text-cyan-400 font-mono">0円</div>
-                      <div className="text-xs text-zinc-300 font-bold mt-1">インフラ維持費</div>
-                      <div className="text-[11px] text-zinc-400 mt-1">GASと学校サーバーの有効活用</div>
+                      <div className="text-2xl font-black text-cyan-400 font-mono">0 件</div>
+                      <div className="text-xs text-zinc-300 font-bold mt-1">障害停止時間</div>
+                      <div className="text-[11px] text-zinc-400 mt-1">多段フォールバックによる高可用性</div>
                     </div>
                   </div>
                 </div>
@@ -480,7 +480,7 @@ export default function ProjectSection() {
                       </h4>
                     </div>
                     <span className="px-3 py-1 rounded-full text-[11px] font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
-                      Zero-Cost &amp; High-Resilience
+                      High-Efficiency &amp; High-Resilience
                     </span>
                   </div>
 
@@ -564,7 +564,7 @@ export default function ProjectSection() {
                           <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10">Dynamic Live</span>
                         </div>
                         <p className="text-xs text-zinc-300">
-                          <strong>Google Apps Script:</strong> Web APIとして動作し、スプレッドシート上の投票データ・緊急告知・落とし物JSONを即時レスポンス。サーバー費0円。
+                          <strong>Google Apps Script:</strong> Web APIとして動作し、スプレッドシート上の投票データ・緊急告知・落とし物JSONを即時レスポンス。サーバーレス構成。
                         </p>
                       </div>
 

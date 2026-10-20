@@ -6,7 +6,7 @@ const timelineEvents = [
     title: "愛知県生まれ",
     badge: "Origin",
     badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/20",
-    description: "現在17歳、滝学園 高校2年生。",
+    description: "滝学園 高校2年生。",
     highlights: ["好奇心とものづくりへの関心の原点"],
   },
   {
@@ -44,7 +44,7 @@ const timelineEvents = [
       "先進技術研究部 部長に就任。React 19 / Next.js / TypeScriptを中心とするモダンWebスタックに注力。滝学園100周年記念「長月祭 公式Webアプリ」の開発責任者として、要件折衝からアーキテクチャ設計・運用まで7名体制を牽引。",
     highlights: [
       "React 19 / Vite / PWAアーキテクチャの確立",
-      "GAS × スプレッドシート連携による0円運用API設計",
+      "GAS × スプレッドシート連携による高可用性API設計",
       "7名チームのタスク配分・品質管理・生徒会折衝",
     ],
   },

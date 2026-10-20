@@ -59,14 +59,14 @@ const techCategories = [
   },
   {
     name: "Backend, DevOps & Tooling",
-    badge: "Zero-Cost Serverless",
+    badge: "Cost-Effective Serverless",
     badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-    description: "制約を工夫で凌駕するサーバーレスAPIと自動化",
+    description: "既存資産と工夫で制約を凌駕するサーバーレスAPIと自動化",
     items: [
       {
         name: "Google Apps Script (GAS)",
         level: "Production",
-        desc: "スプレッドシート連携による0円APIエンドポイント構築。リアルタイム投票・緊急お知らせ配信。",
+        desc: "スプレッドシート連携による高効率APIエンドポイント構築。リアルタイム投票・緊急お知らせ配信。",
       },
       {
         name: "Vite & Modern Bundlers",

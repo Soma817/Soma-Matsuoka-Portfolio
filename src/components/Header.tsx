@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -12,12 +12,24 @@ const navLinks = [
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
+  // モバイルメニューが開いているときは背景スクロールを防止
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   const handleLinkClick = () => {
     setIsOpen(false);
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/5">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0f]/80 backdrop-blur-xl border-b border-white/10">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#" className="text-lg font-bold tracking-tight group">
           <span className="gradient-text">S.Matsuoka</span>
@@ -40,40 +52,43 @@ export default function Header() {
         {/* Mobile menu button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
-          aria-label="メニュー"
+          className="md:hidden relative w-9 h-9 flex items-center justify-center rounded-lg hover:bg-white/5 transition-colors"
+          aria-label={isOpen ? "メニューを閉じる" : "メニューを開く"}
+          aria-expanded={isOpen}
         >
-          <span
-            className={`w-5 h-0.5 bg-white transition-all duration-300 ${
-              isOpen ? "rotate-45 translate-y-2" : ""
-            }`}
-          />
-          <span
-            className={`w-5 h-0.5 bg-white transition-all duration-300 ${
-              isOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`w-5 h-0.5 bg-white transition-all duration-300 ${
-              isOpen ? "-rotate-45 -translate-y-2" : ""
-            }`}
-          />
+          <div className="w-5 h-4 flex flex-col justify-between">
+            <span
+              className={`w-full h-0.5 bg-white rounded-full transition-all duration-300 origin-left ${
+                isOpen ? "rotate-45 translate-x-1" : ""
+              }`}
+            />
+            <span
+              className={`w-full h-0.5 bg-white rounded-full transition-all duration-200 ${
+                isOpen ? "opacity-0 scale-x-0" : ""
+              }`}
+            />
+            <span
+              className={`w-full h-0.5 bg-white rounded-full transition-all duration-300 origin-left ${
+                isOpen ? "-rotate-45 translate-x-1" : ""
+              }`}
+            />
+          </div>
         </button>
       </div>
 
-      {/* Mobile nav */}
+      {/* Mobile nav overlay & dropdown */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-64" : "max-h-0"
+        className={`md:hidden overflow-hidden transition-all duration-300 bg-[#0a0a0f]/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl ${
+          isOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <nav className="flex flex-col px-6 pb-4 gap-3">
+        <nav className="flex flex-col px-6 py-4 gap-1">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={handleLinkClick}
-              className="text-zinc-400 hover:text-white transition-colors py-2 border-b border-white/5"
+              className="text-zinc-300 hover:text-white hover:bg-white/5 px-3 py-2.5 rounded-lg text-base font-medium transition-all"
             >
               {link.label}
             </a>

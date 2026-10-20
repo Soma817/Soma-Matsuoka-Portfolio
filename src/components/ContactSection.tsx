@@ -83,7 +83,7 @@ export default function ContactSection() {
               Let&apos;s Create <span className="gradient-text">Together</span>
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-              Webアプリケーション開発、プロジェクトの技術設計、登壇・共同開発・インターンシップ等、幅広く前向きにお話しさせていただけますと幸いです。
+              Webアプリケーション開発、プロジェクトの技術設計、共同開発等、幅広く前向きにお話しさせていただけますと幸いです。
             </p>
           </div>
         </ScrollReveal>

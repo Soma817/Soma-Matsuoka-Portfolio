@@ -1,43 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import ScrollReveal from "./ScrollReveal";
 
-const metrics = [
-  {
-    value: "100th",
-    label: "滝学園創立記念",
-    sub: "歴史的節目を飾る公式Webアプリ開発",
-    gradient: "from-cyan-400 to-blue-500",
-  },
-  {
-    value: "14+",
-    label: "実装画面・機能群",
-    sub: "PWA・マップ・混雑投票・落とし物速報など",
-    gradient: "from-blue-400 to-indigo-500",
-  },
-  {
-    value: "7名",
-    label: "先進技術研究部 開発陣",
-    sub: "部長 / 開発責任者としてチーム統括",
-    gradient: "from-purple-400 to-pink-500",
-  },
-  {
-    value: "0円",
-    label: "運用インフラ費",
-    sub: "GAS × スプレッドシート連携で耐障害性＆コストゼロ両立",
-    gradient: "from-emerald-400 to-teal-500",
-  },
-];
-
 export default function HeroSection() {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText("soma.nova817@gmail.com");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2200);
-  };
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 overflow-hidden">
@@ -97,43 +62,14 @@ export default function HeroSection() {
               </span>
             </a>
             <a
-              href="https://www.taki-hj.ac.jp/students_works/nagatsuki_fes_2026/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full glass border border-white/10 text-cyan-300 font-semibold text-sm hover:bg-white/10 hover:border-cyan-400/40 hover:scale-105 active:scale-95 transition-all duration-300"
+              href="#contact"
+              className="group relative px-8 py-3.5 rounded-full glass border border-cyan-400/30 text-white font-semibold text-sm hover:border-cyan-400/60 hover:bg-cyan-500/10 hover:shadow-[0_0_25px_rgba(34,211,238,0.25)] hover:scale-105 active:scale-95 transition-all duration-300"
             >
-              <span>長月祭アプリを実機プレビュー</span>
-              <span className="text-xs">↗</span>
-            </a>
-            <button
-              onClick={handleCopyEmail}
-              className="group inline-flex items-center gap-2 px-5 py-3.5 rounded-full border border-white/10 text-zinc-400 font-medium text-sm hover:text-white hover:bg-white/5 hover:border-white/20 transition-all duration-300 active:scale-95"
-            >
-              <span>{copied ? "メールをコピーしました！" : "Contact"}</span>
-              <span className="text-xs text-zinc-500 group-hover:text-zinc-300">
-                {copied ? "✓" : "📋"}
+              <span className="flex items-center gap-2">
+                <span>Contact</span>
+                <span className="text-cyan-400 group-hover:translate-x-0.5 transition-transform">✉</span>
               </span>
-            </button>
-          </div>
-        </ScrollReveal>
-
-        {/* Key Metrics Strip / Grid */}
-        <ScrollReveal delay={400}>
-          <div className="pt-8 grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {metrics.map((m, idx) => (
-              <div
-                key={idx}
-                className="glass-card rounded-2xl p-5 border border-white/5 text-left relative overflow-hidden group hover:border-white/20 transition-all duration-300 hover:-translate-y-1"
-              >
-                <div
-                  className={`text-3xl sm:text-4xl font-black font-mono bg-gradient-to-r ${m.gradient} bg-clip-text text-transparent`}
-                >
-                  {m.value}
-                </div>
-                <div className="text-xs sm:text-sm font-bold text-white mt-1.5">{m.label}</div>
-                <div className="text-[11px] text-zinc-400 mt-1 leading-snug">{m.sub}</div>
-              </div>
-            ))}
+            </a>
           </div>
         </ScrollReveal>
 
