@@ -47,7 +47,6 @@ const featuresList = [
 
 export default function ProjectSection() {
   const [activeTab, setActiveTab] = useState<"overview" | "case_study" | "architecture" | "leadership">("overview");
-  const [activeDeviceScreen, setActiveDeviceScreen] = useState<"screen1" | "screen2">("screen1");
 
   return (
     <section id="project" className="relative py-32 px-6">
@@ -117,97 +116,38 @@ export default function ProjectSection() {
               </div>
             </div>
 
-            {/* Interactive Device Showcase & Metrics */}
-            <div className="grid lg:grid-cols-12 gap-8 items-center">
-              {/* Left Column: Metrics & Highlights overview */}
-              <div className="lg:col-span-7 space-y-6">
-                <div className="space-y-3">
-                  <span className="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider">
-                    Executive Summary
-                  </span>
-                  <h4 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                    数千人の来場者が当日同時利用したPWAプロダクト
-                  </h4>
-                  <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed">
-                    従来の紙パンフレットでは不可能だった「リアルタイムのタイムテーブル変更通知」「参加型混雑度投票」「校内インタラクティブSVGマップ」をワンストップで提供。
-                    電波の届きにくい校内環境でも白画面にならない多段フォールバック設計により、2日間の本番運用をゼロダウンタイムで完走しました。
-                  </p>
-                </div>
-
-                {/* Key Metrics Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 text-center">
-                    <div className="text-2xl sm:text-3xl font-black text-cyan-400 font-mono">100th</div>
-                    <div className="text-[11px] text-zinc-400 mt-1">創立100周年記念</div>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 text-center">
-                    <div className="text-2xl sm:text-3xl font-black text-blue-400 font-mono">14+</div>
-                    <div className="text-[11px] text-zinc-400 mt-1">実装画面・機能群</div>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 text-center">
-                    <div className="text-2xl sm:text-3xl font-black text-purple-400 font-mono">7名</div>
-                    <div className="text-[11px] text-zinc-400 mt-1">開発チーム統括</div>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 text-center">
-                    <div className="text-2xl sm:text-3xl font-black text-emerald-400 font-mono">0円</div>
-                    <div className="text-[11px] text-zinc-400 mt-1">GASインフラ運用費</div>
-                  </div>
-                </div>
-
-                {/* Device Screen Switcher Buttons */}
-                <div className="pt-2 flex items-center gap-3">
-                  <span className="text-xs font-mono text-zinc-400">実機スクリーンショット切替:</span>
-                  <button
-                    onClick={() => setActiveDeviceScreen("screen1")}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                      activeDeviceScreen === "screen1"
-                        ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40"
-                        : "bg-white/[0.03] text-zinc-400 border border-white/5 hover:text-white"
-                    }`}
-                  >
-                    メインビジュアル
-                  </button>
-                  <button
-                    onClick={() => setActiveDeviceScreen("screen2")}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                      activeDeviceScreen === "screen2"
-                        ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40"
-                        : "bg-white/[0.03] text-zinc-400 border border-white/5 hover:text-white"
-                    }`}
-                  >
-                    アプリ機能画面
-                  </button>
-                </div>
+            {/* Executive Summary & Metrics */}
+            <div className="space-y-6">
+              <div className="max-w-3xl space-y-3">
+                <span className="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider">
+                  Executive Summary
+                </span>
+                <h4 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  数千人の来場者が当日同時利用したPWAプロダクト
+                </h4>
+                <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed">
+                  従来の紙パンフレットでは不可能だった「リアルタイムのタイムテーブル変更通知」「参加型混雑度投票」「校内インタラクティブSVGマップ」をワンストップで提供。
+                  電波の届きにくい校内環境でも白画面にならない多段フォールバック設計により、2日間の本番運用をゼロダウンタイムで完走しました。
+                </p>
               </div>
 
-              {/* Right Column: Realistic Smartphone Mockup */}
-              <div className="lg:col-span-5 flex justify-center">
-                <div className="relative w-[280px] sm:w-[310px] aspect-[9/19] rounded-[48px] bg-zinc-900 border-[6px] border-zinc-700/80 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_40px_rgba(59,130,246,0.2)] overflow-hidden ring-1 ring-white/10 group">
-                  {/* Dynamic Island / Camera Notch */}
-                  <div className="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-5 bg-black rounded-full z-30 flex items-center justify-end px-3">
-                    <span className="w-2.5 h-2.5 rounded-full bg-zinc-900 border border-zinc-800" />
-                  </div>
-
-                  {/* Phone Screen Image */}
-                  <div className="relative w-full h-full bg-zinc-950 overflow-hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={activeDeviceScreen === "screen1" ? "/candidate-1.jpg" : "/candidate-3.jpg"}
-                      alt="長月祭アプリ実機画面"
-                      className="w-full h-full object-cover object-top transition-all duration-500 group-hover:scale-105"
-                    />
-
-                    {/* Bottom Floating Bar */}
-                    <div className="absolute bottom-4 left-3 right-3 p-3 rounded-2xl bg-zinc-950/80 backdrop-blur-md border border-white/10 text-center space-y-1">
-                      <div className="text-[11px] font-bold text-white flex items-center justify-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        Production Live App
-                      </div>
-                      <div className="text-[9px] font-mono text-zinc-400 truncate">
-                        taki-hj.ac.jp/students_works/nagatsuki_fes_2026/
-                      </div>
-                    </div>
-                  </div>
+              {/* Key Metrics Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl">
+                <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 text-center">
+                  <div className="text-3xl font-black text-cyan-400 font-mono">100th</div>
+                  <div className="text-xs text-zinc-400 mt-1">創立100周年記念</div>
+                </div>
+                <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 text-center">
+                  <div className="text-3xl font-black text-blue-400 font-mono">14+</div>
+                  <div className="text-xs text-zinc-400 mt-1">実装画面・機能群</div>
+                </div>
+                <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 text-center">
+                  <div className="text-3xl font-black text-purple-400 font-mono">7名</div>
+                  <div className="text-xs text-zinc-400 mt-1">開発チーム統括</div>
+                </div>
+                <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 text-center">
+                  <div className="text-3xl font-black text-emerald-400 font-mono">0円</div>
+                  <div className="text-xs text-zinc-400 mt-1">GASインフラ運用費</div>
                 </div>
               </div>
             </div>

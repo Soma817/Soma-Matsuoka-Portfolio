@@ -112,9 +112,6 @@ export default function ContactSection() {
                   <span className="text-zinc-400">{copied ? "✓" : "📋"}</span>
                 </button>
               </div>
-              <p className="text-[11px] text-zinc-500 font-mono">
-                通常24〜48時間以内にご返信いたします
-              </p>
             </div>
 
             {/* Social Links Cards */}
