@@ -46,7 +46,7 @@ const featuresList = [
 ];
 
 export default function ProjectSection() {
-  const [activeTab, setActiveTab] = useState<"overview" | "architecture" | "leadership">("overview");
+  const [activeTab, setActiveTab] = useState<"overview" | "case_study" | "architecture" | "leadership">("overview");
 
   return (
     <section id="project" className="relative py-32 px-6">
@@ -68,7 +68,7 @@ export default function ProjectSection() {
 
         {/* Main Card */}
         <ScrollReveal delay={100}>
-          <div className="glass rounded-3xl p-8 sm:p-12 border border-white/10 relative overflow-hidden">
+          <div className="glass rounded-3xl p-6 sm:p-10 md:p-12 border border-white/10 relative overflow-hidden shadow-2xl">
             {/* Background glow */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-600/15 via-purple-600/10 to-transparent rounded-full blur-3xl pointer-events-none" />
 
@@ -163,10 +163,10 @@ export default function ProjectSection() {
               </div>
 
               {/* Tab Navigation */}
-              <div className="flex border-b border-white/10 gap-6 text-sm">
+              <div className="flex border-b border-white/10 gap-2 sm:gap-6 text-xs sm:text-sm overflow-x-auto pb-1 scrollbar-none">
                 <button
                   onClick={() => setActiveTab("overview")}
-                  className={`pb-3 font-semibold transition-all relative ${
+                  className={`pb-3 px-1 font-semibold transition-all relative shrink-0 ${
                     activeTab === "overview"
                       ? "text-cyan-400 border-b-2 border-cyan-400"
                       : "text-zinc-400 hover:text-white"
@@ -175,18 +175,29 @@ export default function ProjectSection() {
                   概要と背景
                 </button>
                 <button
+                  onClick={() => setActiveTab("case_study")}
+                  className={`pb-3 px-1 font-semibold transition-all relative shrink-0 flex items-center gap-1.5 ${
+                    activeTab === "case_study"
+                      ? "text-cyan-400 border-b-2 border-cyan-400"
+                      : "text-zinc-400 hover:text-white"
+                  }`}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                  プロジェクト詳細分析 (7ステップ)
+                </button>
+                <button
                   onClick={() => setActiveTab("architecture")}
-                  className={`pb-3 font-semibold transition-all relative ${
+                  className={`pb-3 px-1 font-semibold transition-all relative shrink-0 ${
                     activeTab === "architecture"
                       ? "text-cyan-400 border-b-2 border-cyan-400"
                       : "text-zinc-400 hover:text-white"
                   }`}
                 >
-                  技術選定 & アーキテクチャ
+                  アーキテクチャ図 &amp; 技術選定
                 </button>
                 <button
                   onClick={() => setActiveTab("leadership")}
-                  className={`pb-3 font-semibold transition-all relative ${
+                  className={`pb-3 px-1 font-semibold transition-all relative shrink-0 ${
                     activeTab === "leadership"
                       ? "text-cyan-400 border-b-2 border-cyan-400"
                       : "text-zinc-400 hover:text-white"
@@ -196,7 +207,7 @@ export default function ProjectSection() {
                 </button>
               </div>
 
-              {/* Tab Content */}
+              {/* Tab 1: Overview */}
               {activeTab === "overview" && (
                 <div className="space-y-6 text-zinc-300 text-sm leading-relaxed animate-fade-in-up">
                   <div className="grid md:grid-cols-3 gap-6">
@@ -239,8 +250,358 @@ export default function ProjectSection() {
                 </div>
               )}
 
-              {activeTab === "architecture" && (
+              {/* Tab 2: 7-Step Case Study Structure */}
+              {activeTab === "case_study" && (
                 <div className="space-y-6 text-zinc-300 text-sm leading-relaxed animate-fade-in-up">
+                  {/* Step 1: Overview */}
+                  <div className="p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/10 space-y-3 relative overflow-hidden group hover:border-cyan-500/30 transition-colors">
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-bold">
+                        01
+                      </span>
+                      <h4 className="text-lg font-bold text-white tracking-wide">
+                        Overview <span className="text-zinc-400 font-normal">― 概要</span>
+                      </h4>
+                    </div>
+                    <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed pt-1">
+                      滝学園創立100周年記念「長月祭」のために制作された、全校生徒および数千名の来場者が利用する公式Webアプリケーションです。従来の紙パンフレットが抱えていた「当日急な雨天等によるタイムテーブル変更の伝達遅延」「混雑や落とし物情報の把握の難しさ」という課題を、端末に縛られずQRコードから即時アクセス可能なPWA型Webアプリによって解決しました。
+                    </p>
+                  </div>
+
+                  {/* Step 2: Problem */}
+                  <div className="p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/10 space-y-3 relative overflow-hidden group hover:border-rose-500/30 transition-colors">
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-rose-500/10 text-rose-400 border border-rose-500/20 font-bold">
+                        02
+                      </span>
+                      <h4 className="text-lg font-bold text-white tracking-wide">
+                        Problem <span className="text-zinc-400 font-normal">― 課題</span>
+                      </h4>
+                    </div>
+                    <div className="grid sm:grid-cols-3 gap-4 pt-1">
+                      <div className="p-3.5 rounded-xl bg-black/30 border border-white/5 space-y-1.5">
+                        <div className="text-rose-300 font-semibold text-xs">① 情報の即時更新が不可能</div>
+                        <p className="text-zinc-400 text-xs leading-relaxed">
+                          紙冊子では印刷後のタイムテーブル変更や緊急告知、落とし物の速報を来場者へリアルタイムに周知することができませんでした。
+                        </p>
+                      </div>
+                      <div className="p-3.5 rounded-xl bg-black/30 border border-white/5 space-y-1.5">
+                        <div className="text-amber-300 font-semibold text-xs">② サーバー運用費ゼロの制約</div>
+                        <p className="text-zinc-400 text-xs leading-relaxed">
+                          部活動・学校行事の予算制約上、高額なクラウドサーバー費を掛けず、かつ当日数千人の同時接続に耐える構成が求められました。
+                        </p>
+                      </div>
+                      <div className="p-3.5 rounded-xl bg-black/30 border border-white/5 space-y-1.5">
+                        <div className="text-blue-300 font-semibold text-xs">③ 劣悪な回線環境への耐性</div>
+                        <p className="text-zinc-400 text-xs leading-relaxed">
+                          校内全域に数千人が密集してキャリア回線が混雑しても、白画面にならず地図や企画情報を即時参照できる耐障害性が必要でした。
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Step 3: Role */}
+                  <div className="p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/10 space-y-3 relative overflow-hidden group hover:border-purple-500/30 transition-colors">
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20 font-bold">
+                        03
+                      </span>
+                      <h4 className="text-lg font-bold text-white tracking-wide">
+                        Role <span className="text-zinc-400 font-normal">― 担当範囲</span>
+                      </h4>
+                    </div>
+                    <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed pt-1">
+                      先進技術研究部 部長として7名の開発チームを率いる<strong className="text-white">開発責任者</strong>として参画。
+                    </p>
+                    <div className="grid sm:grid-cols-3 gap-3 pt-1 text-xs">
+                      <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 space-y-1">
+                        <span className="text-purple-300 font-bold">企画・折衝・要件定義</span>
+                        <p className="text-zinc-400">学校教職員・生徒会・文化祭実行委員会との仕様協議、ロードマップ策定、チームタスク配分</p>
+                      </div>
+                      <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 space-y-1">
+                        <span className="text-cyan-300 font-bold">システム設計 &amp; コア実装</span>
+                        <p className="text-zinc-400">React 19/Vite環境設計、多段フォールバック層、GAS APIエンドポイント設計、PWA設定</p>
+                      </div>
+                      <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 space-y-1">
+                        <span className="text-emerald-300 font-bold">UI/UX・当日運用統括</span>
+                        <p className="text-zinc-400">モバイルファーストなデザイン設計、ノンエンジニア向け入力シート構築、当日の障害監視</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Step 4: Architecture Summary */}
+                  <div className="p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/10 space-y-4 relative overflow-hidden group hover:border-blue-500/30 transition-colors">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex items-center gap-3">
+                        <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20 font-bold">
+                          04
+                        </span>
+                        <h4 className="text-lg font-bold text-white tracking-wide">
+                          Architecture <span className="text-zinc-400 font-normal">― 技術構成</span>
+                        </h4>
+                      </div>
+                      <button
+                        onClick={() => setActiveTab("architecture")}
+                        className="text-xs text-cyan-400 hover:text-cyan-300 underline font-mono flex items-center gap-1"
+                      >
+                        詳細なアーキテクチャ図タブを見る ↗
+                      </button>
+                    </div>
+                    <div className="grid sm:grid-cols-2 gap-4 text-xs">
+                      <div className="p-4 rounded-xl bg-black/40 border border-white/5 space-y-2">
+                        <div className="font-bold text-blue-300 flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-blue-400" />
+                          フロントエンド &amp; クライアント
+                        </div>
+                        <p className="text-zinc-300">
+                          <strong>React 19 + TypeScript + Vite:</strong> 14画面を完全コードスプリッティング。Tailwind CSSによる徹底したモバイルファーストUI。Service WorkerとPWAによるネイティブライクな体感速度。
+                        </p>
+                      </div>
+                      <div className="p-4 rounded-xl bg-black/40 border border-white/5 space-y-2">
+                        <div className="font-bold text-emerald-300 flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                          バックエンド &amp; データパイプライン
+                        </div>
+                        <p className="text-zinc-300">
+                          <strong>Google Apps Script (GAS) + スプレッドシート:</strong> サーバー費用完全0円で運用。静的バンドル(data.json) + 動的API + LocalStorageの3層耐障害データフロー。
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Step 5: Engineering */}
+                  <div className="p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/10 space-y-3 relative overflow-hidden group hover:border-amber-500/30 transition-colors">
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-400 border border-amber-500/20 font-bold">
+                        05
+                      </span>
+                      <h4 className="text-lg font-bold text-white tracking-wide">
+                        Engineering <span className="text-zinc-400 font-normal">― 技術的な工夫</span>
+                      </h4>
+                    </div>
+                    <div className="space-y-3 pt-1 text-xs sm:text-sm">
+                      <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/5 space-y-1">
+                        <div className="font-bold text-white flex items-center gap-2 text-xs">
+                          <span className="text-cyan-400">◆</span> 混雑環境でも白画面にならない「3段フォールバック設計」
+                        </div>
+                        <p className="text-zinc-400 text-xs leading-relaxed">
+                          通信エラーやGASのクォータ上限に直面しても、ビルド時の静的JSONデータとLocalStorageキャッシュへ自動降格し、閲覧を一切途切れさせないフェイルセーフを構築しました。
+                        </p>
+                      </div>
+                      <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/5 space-y-1">
+                        <div className="font-bold text-white flex items-center gap-2 text-xs">
+                          <span className="text-cyan-400">◆</span> ノンエンジニア実行委員への運用パイプライン設計
+                        </div>
+                        <p className="text-zinc-400 text-xs leading-relaxed">
+                          落とし物や緊急告知は、教員や実行委員が使い慣れたGoogleスプレッドシート/GoogleフォームをトリガーにGASが即座にAPI配信するパイプラインを設計。エンジニアの手を介さず現場完結のリアルタイム運用を実現しました。
+                        </p>
+                      </div>
+                      <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/5 space-y-1">
+                        <div className="font-bold text-white flex items-center gap-2 text-xs">
+                          <span className="text-cyan-400">◆</span> 近隣地域への配慮と安全対策のUI実装
+                        </div>
+                        <p className="text-zinc-400 text-xs leading-relaxed">
+                          近隣商業施設への無断駐車対策として、スクールバス時刻表の目立つ配置と注意事項の強調アラートモーダルを導入し、地域と共生する文化祭運営に技術で貢献しました。
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Step 6: Results */}
+                  <div className="p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/10 space-y-3 relative overflow-hidden group hover:border-emerald-500/30 transition-colors">
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-bold">
+                        06
+                      </span>
+                      <h4 className="text-lg font-bold text-white tracking-wide">
+                        Results <span className="text-zinc-400 font-normal">― 成果</span>
+                      </h4>
+                    </div>
+                    <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3 pt-1">
+                      <div className="p-4 rounded-xl bg-emerald-500/5 border border-emerald-500/20 text-center">
+                        <div className="text-2xl font-black text-emerald-400 font-mono">当日完遂</div>
+                        <div className="text-xs text-zinc-300 font-bold mt-1">ゼロダウンタイム</div>
+                        <div className="text-[11px] text-zinc-400 mt-1">障害による停止なしで2日間完走</div>
+                      </div>
+                      <div className="p-4 rounded-xl bg-blue-500/5 border border-blue-500/20 text-center">
+                        <div className="text-2xl font-black text-blue-400 font-mono">14+ 画面</div>
+                        <div className="text-xs text-zinc-300 font-bold mt-1">フル機能リリース</div>
+                        <div className="text-[11px] text-zinc-400 mt-1">マップ・混雑投票・落とし物等</div>
+                      </div>
+                      <div className="p-4 rounded-xl bg-purple-500/5 border border-purple-500/20 text-center">
+                        <div className="text-2xl font-black text-purple-400 font-mono">7名</div>
+                        <div className="text-xs text-zinc-300 font-bold mt-1">チーム統括完遂</div>
+                        <div className="text-[11px] text-zinc-400 mt-1">タスク分担と品質管理の徹底</div>
+                      </div>
+                      <div className="p-4 rounded-xl bg-cyan-500/5 border border-cyan-500/20 text-center">
+                        <div className="text-2xl font-black text-cyan-400 font-mono">0円</div>
+                        <div className="text-xs text-zinc-300 font-bold mt-1">インフラ維持費</div>
+                        <div className="text-[11px] text-zinc-400 mt-1">GASと学校サーバーの有効活用</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Step 7: Links */}
+                  <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-blue-950/30 to-purple-950/30 border border-cyan-500/20 space-y-3 relative overflow-hidden">
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-bold">
+                        07
+                      </span>
+                      <h4 className="text-lg font-bold text-white tracking-wide">
+                        Links <span className="text-zinc-400 font-normal">― 検証先</span>
+                      </h4>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-4 pt-1">
+                      <a
+                        href="https://www.taki-hj.ac.jp/students_works/nagatsuki_fes_2026/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-xs shadow-lg transition-all"
+                      >
+                        <span>本番公開Webアプリ（滝学園公式ドメイン）</span>
+                        <span>↗</span>
+                      </a>
+                      <a
+                        href="https://github.com/Soma817"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl glass border border-white/10 hover:border-white/30 text-white font-semibold text-xs transition-all"
+                      >
+                        <span>開発者 GitHub (@Soma817)</span>
+                        <span>↗</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Tab 3: Architecture Diagram & Tech Deep Dive */}
+              {activeTab === "architecture" && (
+                <div className="space-y-8 text-zinc-300 text-sm leading-relaxed animate-fade-in-up">
+                  {/* Visual Architecture Diagram Box */}
+                  <div className="p-6 sm:p-8 rounded-2xl bg-zinc-950/70 border border-cyan-500/20 space-y-6">
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
+                      <div>
+                        <div className="text-xs font-mono text-cyan-400 tracking-wider uppercase font-bold">
+                          System Architecture Diagram
+                        </div>
+                        <h4 className="text-lg sm:text-xl font-black text-white mt-0.5">
+                          システム構成図 &amp; データフロー
+                        </h4>
+                      </div>
+                      <span className="px-3 py-1 rounded-full text-[11px] font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+                        Zero-Cost &amp; High-Resilience
+                      </span>
+                    </div>
+
+                    {/* Interactive/Visual Component Flow */}
+                    <div className="space-y-4">
+                      {/* Diagram Row 1: Users & Devices */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="p-4 rounded-xl bg-blue-500/5 border border-blue-500/20 space-y-2">
+                          <div className="flex items-center justify-between text-xs font-mono text-blue-400 font-bold">
+                            <span>[CLIENT 1] 一般来場者 / 保護者 / 受験生</span>
+                            <span className="text-[10px] px-2 py-0.5 rounded bg-blue-500/10">Mobile PWA</span>
+                          </div>
+                          <div className="text-xs text-zinc-300">
+                            スマートフォン(iOS/Android)のブラウザからQRコード経由で瞬時に起動。
+                            <ul className="list-disc list-inside text-zinc-400 mt-1 text-[11px] space-y-0.5">
+                              <li>企画検索・SVG校内マップ閲覧</li>
+                              <li>ステージタイムテーブル確認</li>
+                              <li>参加型混雑度投票の即時送信</li>
+                              <li>お気に入り(My Favorite)の端末内保存</li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <div className="p-4 rounded-xl bg-purple-500/5 border border-purple-500/20 space-y-2">
+                          <div className="flex items-center justify-between text-xs font-mono text-purple-400 font-bold">
+                            <span>[OPERATOR] 文化祭実行委員会 / 教職員</span>
+                            <span className="text-[10px] px-2 py-0.5 rounded bg-purple-500/10">Management</span>
+                          </div>
+                          <div className="text-xs text-zinc-300">
+                            複雑な管理画面を使わず、日常ツールで現場運用完結。
+                            <ul className="list-disc list-inside text-zinc-400 mt-1 text-[11px] space-y-0.5">
+                              <li>Googleフォームから落とし物情報を即時報告</li>
+                              <li>スプレッドシートで緊急お知らせ(is_emergency)の切替</li>
+                              <li>野外ステージ等の雨天タイムテーブル調整</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Direction Arrow Down */}
+                      <div className="flex items-center justify-center gap-2 text-zinc-500 py-1 font-mono text-xs">
+                        <span>↓ HTTPS (Fetch / Service Worker Intercept)</span>
+                      </div>
+
+                      {/* Diagram Row 2: Frontend Layer (SPA + PWA) */}
+                      <div className="p-5 rounded-xl bg-gradient-to-r from-blue-950/40 via-zinc-900/60 to-purple-950/40 border border-white/10 space-y-3">
+                        <div className="flex items-center justify-between flex-wrap gap-2">
+                          <span className="text-xs font-mono text-cyan-300 font-bold uppercase tracking-wider">
+                            Frontend Application Layer (滝学園Webサーバーホスト)
+                          </span>
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-zinc-300">
+                            React 19 + TypeScript + Vite + Tailwind CSS
+                          </span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                          <div className="p-3 rounded-lg bg-black/40 border border-white/5 space-y-1">
+                            <div className="text-white font-semibold">React.lazy / Suspense</div>
+                            <p className="text-zinc-400 text-[11px]">14画面のルート分割により初回バンドルサイズを極小化</p>
+                          </div>
+                          <div className="p-3 rounded-lg bg-black/40 border border-white/5 space-y-1">
+                            <div className="text-white font-semibold">Service Worker &amp; PWA</div>
+                            <p className="text-zinc-400 text-[11px]">静的アセットを端末にキャッシュしオフライン・回線混雑に耐性</p>
+                          </div>
+                          <div className="p-3 rounded-lg bg-black/40 border border-white/5 space-y-1">
+                            <div className="text-white font-semibold">Interactive SVG Map</div>
+                            <p className="text-zinc-400 text-[11px]">高解像度フロアマップのベクター描画とピンポイント企画紐付け</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Direction Arrow Down with Failover Indicator */}
+                      <div className="flex items-center justify-center gap-2 text-zinc-500 py-1 font-mono text-xs">
+                        <span>↓ Data Fetching &amp; Fallback Pipeline (3-Tier Safety Net)</span>
+                      </div>
+
+                      {/* Diagram Row 3: Backend & Fallback Pipeline */}
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="p-4 rounded-xl bg-emerald-500/5 border border-emerald-500/20 space-y-2">
+                          <div className="flex items-center justify-between text-xs font-mono text-emerald-400 font-bold">
+                            <span>Layer 1: GAS API</span>
+                            <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10">Dynamic Live</span>
+                          </div>
+                          <p className="text-xs text-zinc-300">
+                            <strong>Google Apps Script:</strong> Web APIとして動作し、スプレッドシート上の投票データ・緊急告知・落とし物JSONを即時レスポンス。サーバー費0円。
+                          </p>
+                        </div>
+
+                        <div className="p-4 rounded-xl bg-cyan-500/5 border border-cyan-500/20 space-y-2">
+                          <div className="flex items-center justify-between text-xs font-mono text-cyan-400 font-bold">
+                            <span>Layer 2: LocalStorage</span>
+                            <span className="text-[10px] px-1.5 py-0.5 rounded bg-cyan-500/10">Client Cache</span>
+                          </div>
+                          <p className="text-xs text-zinc-300">
+                            <strong>ブラウザストレージ:</strong> 直近取得したAPIレスポンスをクライアント側に永続化。電波断絶時も直前のデータを維持し画面が真っ白になりません。
+                          </p>
+                        </div>
+
+                        <div className="p-4 rounded-xl bg-indigo-500/5 border border-indigo-500/20 space-y-2">
+                          <div className="flex items-center justify-between text-xs font-mono text-indigo-400 font-bold">
+                            <span>Layer 3: data.json</span>
+                            <span className="text-[10px] px-1.5 py-0.5 rounded bg-indigo-500/10">Static Fallback</span>
+                          </div>
+                          <p className="text-xs text-zinc-300">
+                            <strong>静的マスターJSON:</strong> ビルド時に内包された全企画・全タイムテーブルデータ。APIが万一ダウンしても完全な情報表示を担保。
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Highlights Grid */}
                   <div className="grid sm:grid-cols-2 gap-4">
                     {projectHighlights.map((hl, idx) => (
                       <div key={idx} className="glass rounded-2xl p-6 border border-white/5 space-y-3">
@@ -260,6 +621,7 @@ export default function ProjectSection() {
                 </div>
               )}
 
+              {/* Tab 4: Leadership & Message */}
               {activeTab === "leadership" && (
                 <div className="space-y-6 text-zinc-300 text-sm leading-relaxed animate-fade-in-up">
                   <div className="grid md:grid-cols-3 gap-6">
@@ -280,7 +642,7 @@ export default function ProjectSection() {
                     </div>
 
                     <div className="glass rounded-2xl p-6 border border-white/5 space-y-2">
-                      <div className="text-rose-400 font-bold text-xs uppercase tracking-wider">危機管理 & 地域配慮</div>
+                      <div className="text-rose-400 font-bold text-xs uppercase tracking-wider">危機管理 &amp; 地域配慮</div>
                       <h4 className="text-white font-bold text-base">交通誘導・近隣対策の徹底</h4>
                       <p className="text-zinc-400 text-xs leading-relaxed">
                         周辺商業施設駐車禁止の警告アラートやスクールバス時刻表を全画面・トップ最前面で強調表示し、地域社会への配慮もアプリで解決。
@@ -311,4 +673,3 @@ export default function ProjectSection() {
     </section>
   );
 }
-
