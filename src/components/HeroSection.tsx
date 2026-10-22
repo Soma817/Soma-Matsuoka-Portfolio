@@ -43,7 +43,6 @@ export default function HeroSection() {
         {/* Lead Description */}
         <ScrollReveal delay={200}>
           <p className="text-base sm:text-xl text-zinc-300 max-w-2xl mx-auto leading-relaxed font-light">
-            最新の <span className="text-white font-semibold underline decoration-cyan-400/50 underline-offset-4">React 19 / Next.js / TypeScript</span> を主軸に、
             緻密なUI/UX設計から耐障害性サーバーレス基盤まで。
             目的と体験を妥協なく具現化するWebエンジニアリング。
           </p>
