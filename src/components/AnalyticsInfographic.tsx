@@ -2,7 +2,7 @@
 
 import { useMemo, useState, useEffect, useRef } from "react";
 
-// ─── Real GA4 data (2026.09.01 – 09.30) ─────────────────────────────────────
+// ─── Real GA4 data (2026.09.12 – 09.13) ─────────────────────────────────────
 const KPI = {
   activeUsers: 14420,
   newUsers: 14448,
@@ -444,7 +444,7 @@ export default function AnalyticsInfographic() {
       <div className="flex flex-wrap items-center gap-3">
         <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-semibold">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          GA4 Verified — 2026.09.01 – 09.30
+          GA4 Verified — 2026.09.12 – 09.13
         </span>
         <span className="text-xs text-zinc-500 font-mono">Powered by Google Analytics 4</span>
       </div>
