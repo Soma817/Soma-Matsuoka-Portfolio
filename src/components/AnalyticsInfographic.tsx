@@ -129,8 +129,8 @@ function TrafficLineChart({
   metric: "pv" | "users";
   animate: boolean;
 }) {
-  const W = 600, H = 200;
-  const PAD = { top: 16, right: 16, bottom: 36, left: 44 };
+  const W = 600, H = 220;
+  const PAD = { top: 36, right: 20, bottom: 48, left: 44 };
   const innerW = W - PAD.left - PAD.right;
   const innerH = H - PAD.top - PAD.bottom;
   const maxVal = Math.max(...hourlyTraffic.map((d) => d[metric]));
@@ -152,7 +152,7 @@ function TrafficLineChart({
   const yTicks = [0, 0.25, 0.5, 0.75, 1].map((r) => Math.round(r * maxVal));
 
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="w-full" style={{ height: 200 }}>
+    <svg viewBox={`0 0 ${W} ${H}`} className="w-full" style={{ height: 220 }} overflow="hidden">
       <defs>
         <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.30" />
@@ -246,11 +246,11 @@ function TrafficLineChart({
         <text
           key={i}
           x={xScale(i)}
-          y={H - 6}
-          textAnchor="middle"
+          y={PAD.top + innerH + 14}
+          textAnchor="end"
           fontSize="8"
           fill="#52525b"
-          transform={`rotate(-30, ${xScale(i)}, ${H - 6})`}
+          transform={`rotate(-30, ${xScale(i)}, ${PAD.top + innerH + 14})`}
         >
           {d.time}
         </text>
@@ -301,58 +301,101 @@ function DonutChart({ segments }: { segments: { label: string; value: number; co
   );
 }
 
-// ─── Radial bar chart for screen views ──────────────────────────────────────
-function RadialBars({ screens }: { screens: typeof topScreens }) {
-  const cx = 100, cy = 110, maxR = 80, minR = 20;
-  const maxViews = screens[0].views;
+// ─── Screen views donut pie chart (pure SVG) ────────────────────────────────
+function ScreenPieChart({ screens }: { screens: typeof topScreens }) {
+  const cx = 90, cy = 90, R = 70, r = 44;
+  const total = screens.reduce((s, x) => s + x.views, 0);
+  let cumAngle = -Math.PI / 2; // start from top
+
+  const slices = screens.map((s) => {
+    const sweep = (s.views / total) * Math.PI * 2;
+    const startA = cumAngle;
+    const endA = cumAngle + sweep;
+    cumAngle = endA;
+
+    const largeArc = sweep > Math.PI ? 1 : 0;
+
+    // Outer arc endpoints
+    const ox1 = cx + R * Math.cos(startA);
+    const oy1 = cy + R * Math.sin(startA);
+    const ox2 = cx + R * Math.cos(endA);
+    const oy2 = cy + R * Math.sin(endA);
+    // Inner arc endpoints (reversed)
+    const ix1 = cx + r * Math.cos(endA);
+    const iy1 = cy + r * Math.sin(endA);
+    const ix2 = cx + r * Math.cos(startA);
+    const iy2 = cy + r * Math.sin(startA);
+
+    const d = [
+      `M ${ox1.toFixed(2)} ${oy1.toFixed(2)}`,
+      `A ${R} ${R} 0 ${largeArc} 1 ${ox2.toFixed(2)} ${oy2.toFixed(2)}`,
+      `L ${ix1.toFixed(2)} ${iy1.toFixed(2)}`,
+      `A ${r} ${r} 0 ${largeArc} 0 ${ix2.toFixed(2)} ${iy2.toFixed(2)}`,
+      "Z",
+    ].join(" ");
+
+    // Label position (midpoint angle)
+    const midA = startA + sweep / 2;
+    const labelR = (R + r) / 2;
+    const lx = cx + labelR * Math.cos(midA);
+    const ly = cy + labelR * Math.sin(midA);
+
+    return { ...s, d, lx, ly, sweep };
+  });
 
   return (
-    <svg viewBox="0 0 200 130" className="w-full">
+    <svg viewBox="0 0 180 180" className="w-full max-w-[180px]">
       <defs>
-        {screens.map((s, i) => (
-          <linearGradient key={i} id={`rg${i}`} x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor={s.color} stopOpacity="0.3" />
-            <stop offset="100%" stopColor={s.color} />
-          </linearGradient>
+        {slices.map((s, i) => (
+          <filter key={i} id={`sglow${i}`}>
+            <feGaussianBlur stdDeviation="2" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
         ))}
       </defs>
-      {screens.map((s, i) => {
-        const barW = ((maxR - minR) / screens.length) * 0.85;
-        const gapUnit = (maxR - minR) / screens.length;
-        const outerR = maxR - i * gapUnit;
-        const innerR = outerR - barW;
-        const angle = (s.views / maxViews) * 180; // half-circle (0–180°)
-        const toRad = (deg: number) => (deg * Math.PI) / 180;
-        const startAngle = toRad(180);
-        const endAngle = toRad(180 - angle);
-        const x1 = cx + outerR * Math.cos(startAngle);
-        const y1 = cy + outerR * Math.sin(startAngle);
-        const x2 = cx + outerR * Math.cos(endAngle);
-        const y2 = cy + outerR * Math.sin(endAngle);
-        const ix1 = cx + innerR * Math.cos(startAngle);
-        const iy1 = cy + innerR * Math.sin(startAngle);
-        const ix2 = cx + innerR * Math.cos(endAngle);
-        const iy2 = cy + innerR * Math.sin(endAngle);
-        const largeArc = angle > 180 ? 1 : 0;
-        const d = `M ${x1} ${y1} A ${outerR} ${outerR} 0 ${largeArc} 0 ${x2} ${y2} L ${ix2} ${iy2} A ${innerR} ${innerR} 0 ${largeArc} 1 ${ix1} ${iy1} Z`;
-        const bgX1 = cx + outerR * Math.cos(toRad(180));
-        const bgY1 = cy + outerR * Math.sin(toRad(180));
-        const bgX2 = cx + outerR * Math.cos(toRad(0));
-        const bgY2 = cy + outerR * Math.sin(toRad(0));
-        const bgIX1 = cx + innerR * Math.cos(toRad(180));
-        const bgIY1 = cy + innerR * Math.sin(toRad(180));
-        const bgIX2 = cx + innerR * Math.cos(toRad(0));
-        const bgIY2 = cy + innerR * Math.sin(toRad(0));
-        const bgD = `M ${bgX1} ${bgY1} A ${outerR} ${outerR} 0 1 0 ${bgX2} ${bgY2} L ${bgIX2} ${bgIY2} A ${innerR} ${innerR} 0 1 1 ${bgIX1} ${bgIY1} Z`;
-        return (
-          <g key={i}>
-            <path d={bgD} fill="white" fillOpacity="0.04" />
-            <path d={d} fill={`url(#rg${i})`} />
-          </g>
-        );
-      })}
-      <text x={cx} y={cy + 18} textAnchor="middle" fontSize="8" fill="#52525b">
-        Total screen views
+
+      {/* Subtle outer ring track */}
+      <circle cx={cx} cy={cy} r={R + 2} fill="none" stroke="white" strokeOpacity="0.04" strokeWidth="1" />
+
+      {slices.map((s, i) => (
+        <g key={i}>
+          {/* Gap between slices via slight stroke */}
+          <path
+            d={s.d}
+            fill={s.color}
+            stroke="black"
+            strokeWidth="1.5"
+            opacity="0.92"
+            filter={`url(#sglow${i})`}
+          />
+          {/* Percentage label — only if slice is large enough */}
+          {s.sweep > 0.35 && (
+            <text
+              x={s.lx.toFixed(1)}
+              y={s.ly.toFixed(1)}
+              textAnchor="middle"
+              dominantBaseline="central"
+              fontSize="9"
+              fill="white"
+              fontWeight="bold"
+              style={{ pointerEvents: "none" }}
+            >
+              {s.share}%
+            </text>
+          )}
+        </g>
+      ))}
+
+      {/* Center hole label */}
+      <circle cx={cx} cy={cy} r={r - 2} fill="#050505" />
+      <text x={cx} y={cy - 8} textAnchor="middle" fontSize="14" fill="white" fontWeight="bold">
+        {screens.length}
+      </text>
+      <text x={cx} y={cy + 8} textAnchor="middle" fontSize="8" fill="#71717a">
+        screens
       </text>
     </svg>
   );
@@ -469,7 +512,7 @@ export default function AnalyticsInfographic() {
           label="Avg. Engagement"
           value={Math.round(KPI.avgEngagementSec)}
           suffix="s"
-          sub={`≈ ${fmtSec(KPI.avgEngagementSec)} の深い利用`}
+          sub={`≈ ${fmtSec(KPI.avgEngagementSec)} の利用`}
           color="border-blue-400/20 bg-blue-400/[0.05]"
           active={visible}
         />
@@ -676,13 +719,13 @@ export default function AnalyticsInfographic() {
             ))}
           </div>
 
-          {/* Radial visualization */}
-          <div className="hidden md:block">
-            <RadialBars screens={topScreens} />
-            <div className="space-y-1 mt-1">
+          {/* Pie chart visualization */}
+          <div className="hidden md:flex flex-col items-center gap-3">
+            <ScreenPieChart screens={topScreens} />
+            <div className="space-y-1 w-full">
               {topScreens.map((s, i) => (
                 <div key={i} className="flex items-center gap-1.5 text-[10px]">
-                  <span className="w-2 h-2 rounded-sm" style={{ backgroundColor: s.color }} />
+                  <span className="w-2 h-2 rounded-sm shrink-0" style={{ backgroundColor: s.color }} />
                   <span className="text-zinc-400 truncate">{s.icon} {s.share}%</span>
                 </div>
               ))}
