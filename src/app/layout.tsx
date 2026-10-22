@@ -14,6 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  },
   title: "松岡 奏磨 / Soma Matsuoka | Portfolio",
   description:
     "松岡奏磨（Soma Matsuoka）のポートフォリオ。滝学園 高校2年生・先進技術研究部 部長。React 19 / Next.js / PWAを用いたWebアプリケーション開発とアーキテクチャ設計の実績・ケーススタディ。",

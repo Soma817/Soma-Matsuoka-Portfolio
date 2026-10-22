@@ -43,7 +43,7 @@ const timelineEvents = [
     badge: "Full-Stack & Lead",
     badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
     description:
-      "先進技術研究部 部長に就任。React 19 / Next.js / TypeScriptを中心とするモダンWebスタックに注力。滝学園100周年記念「長月祭 公式Webアプリ」の開発責任者として、要件折衝からアーキテクチャ設計・運用まで7名体制を牽引。",
+      "先進技術研究部 部長に就任。React 19 / Next.js / TypeScriptを中心とするモダンWebスタックに注力。滝学園100周年記念「長月祭 公式Webアプリ」では開発責任者として、要件折衝からアーキテクチャ設計・運用まで7名体制を牽引。",
     highlights: [
       "React 19 / Vite / PWAアーキテクチャの確立",
       "GAS × スプレッドシート連携による高可用性API設計",
@@ -122,11 +122,11 @@ export default function AboutSection() {
 
                 <div className="space-y-3.5 text-zinc-300 text-xs sm:text-sm leading-relaxed border-t border-white/5 pt-5">
                   <p>
-                    2009年愛知県生まれ、滝学園 高校2年生。滝学園 先進技術研究部 部長。
+                    2009年愛知県生まれ、高校2年生。滝学園 先進技術研究部 部長。
                   </p>
                   <p>
-                    中学時代のドローン空撮制御や航空法規の研究を経て、高校からWebソフトウェアの世界へ本格シフト。
-                    AI・サイバーセキュリティの探究を経て、現在はReact 19 / Next.jsを中心としたモダンWeb開発に傾注しています。
+                    中学時代のドローン空撮制御や航空法規の研究を経て、高校からWebソフトウェアへ本格シフト。
+                    AI・データサイエンス・サイバーセキュリティなどの探究も進めながら、モダンWeb開発に注力しています。
                   </p>
                   <p>
                     「使う人にとって本当に快適か」「不意のトラブルでも止まらないか」に徹底的にこだわり、UIデザインからサーバーレスアーキテクチャまで一貫して手掛けます。

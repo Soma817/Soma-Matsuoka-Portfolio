@@ -74,11 +74,14 @@ export default function HeroSection() {
 
         {/* Scroll indicator */}
         <ScrollReveal delay={500}>
-          <div className="pt-8 flex flex-col items-center gap-2">
-            <span className="text-[10px] text-zinc-500 tracking-[0.25em] font-mono uppercase">
+          <div className="pt-8 inline-flex flex-col items-center gap-3 text-cyan-200">
+            <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-400/10 px-4 py-2 text-xs sm:text-sm font-mono font-bold tracking-[0.28em] text-cyan-100 shadow-[0_0_24px_rgba(34,211,238,0.18)] backdrop-blur-sm">
               SCROLL DOWN
+              <span aria-hidden="true" className="text-base leading-none">↓</span>
             </span>
-            <div className="w-px h-10 bg-gradient-to-b from-zinc-500 via-zinc-700 to-transparent animate-pulse" />
+            <span aria-hidden="true" className="relative h-12 w-px overflow-hidden bg-gradient-to-b from-cyan-300 via-cyan-500/60 to-transparent">
+              <span className="absolute inset-x-0 top-0 h-5 animate-pulse bg-white shadow-[0_0_8px_#67e8f9]" />
+            </span>
           </div>
         </ScrollReveal>
       </div>

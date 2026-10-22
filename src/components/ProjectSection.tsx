@@ -647,7 +647,7 @@ export default function ProjectSection() {
                     <h4 className="text-white font-bold text-base">開発責任者メッセージ（公式Webアプリ ABOUTより）</h4>
                   </div>
                   <blockquote className="text-xs sm:text-sm text-zinc-300 leading-relaxed border-l-2 border-cyan-400/50 pl-4 italic">
-                    「制作過程には想定外の課題も多々あり、試行錯誤を重ねました。次々に出てくる問題に苦しみながらも、7人で意見を出し合い一つ一つ壁を乗り越えていく瞬間は、私にとっては喜びと達成感に満ちていました。
+                    開発したWebアプリは、UI（操作画面）のデザインやレスポンスの速さ、システム構築に至るまで、先進技術研究部で日々培ってきた知識と技術を注ぎ込み、ゼロから作り上げた作品です。「制作過程には想定外の課題も多々あり、試行錯誤を重ねました。次々に出てくる問題に苦しみながらも、7人で意見を出し合い一つ一つ壁を乗り越えていく瞬間は、私にとっては喜びと達成感に満ちていました。
                     先輩方が築いてこられた100年という伝統を受け継ぎながら、技術という新たな可能性を未来へと繋いでいく。この一大プロジェクトに関われたことは、私の大きな財産になりました。」
                   </blockquote>
                   <div className="text-right text-xs font-mono text-zinc-400">
