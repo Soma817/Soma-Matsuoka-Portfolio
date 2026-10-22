@@ -454,7 +454,7 @@ export default function AnalyticsInfographic() {
         <KpiCard
           label="Active Users"
           value={14420}
-          sub="ユニーク来場者"
+          sub="アクティブユーザー"
           color="border-cyan-400/20 bg-cyan-400/[0.05]"
           active={visible}
         />
