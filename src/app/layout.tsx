@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     apple: "/icon.png",
   },
   title: {
-    default: "松岡奏磨 | 長月祭アプリ開発責任者・先進技術研究部部長 | Portfolio",
+    default: "松岡奏磨 / Soma Matsuoka | Portfolio",
     template: "%s | 松岡奏磨 Portfolio",
   },
   description:
