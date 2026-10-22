@@ -383,7 +383,7 @@ export default function ProjectSection() {
                         <span className="text-cyan-400">◆</span> ノンエンジニア実行委員への運用パイプライン設計
                       </div>
                       <p className="text-zinc-400 text-xs leading-relaxed">
-                        落とし物や緊急告知は、教員や実行委員が使い慣れたGoogleスプレッドシート/GoogleフォームをトリガーにGASが即座にAPI配信するパイプラインを設計。エンジニアの手を介さず現場完結のリアルタイム運用を実現しました。
+                        落とし物や緊急告知は、教員や実行委員が使い慣れたGoogleスプレッドシートをトリガーにGASが即座にAPI配信するパイプラインを設計。エンジニアの手を介さず現場完結のリアルタイム運用を実現しました。
                       </p>
                     </div>
                     <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/5 space-y-1">
@@ -512,7 +512,7 @@ export default function ProjectSection() {
                         <div className="text-xs text-zinc-300">
                           複雑な管理画面を使わず、日常ツールで現場運用完結。
                           <ul className="list-disc list-inside text-zinc-400 mt-1 text-[11px] space-y-0.5">
-                            <li>Googleフォームから落とし物情報を即時報告</li>
+                            <li>Googleスプレッドシートから落とし物情報を即時報告</li>
                             <li>スプレッドシートで緊急お知らせ(is_emergency)の切替</li>
                             <li>野外ステージ等の雨天タイムテーブル調整</li>
                           </ul>
@@ -627,7 +627,7 @@ export default function ProjectSection() {
                     <div className="text-amber-400 font-bold text-xs uppercase tracking-wider">運用の省力化</div>
                     <h4 className="text-white font-bold text-base">ノンエンジニア運用設計</h4>
                     <p className="text-zinc-400 text-xs leading-relaxed">
-                      お知らせや落とし物情報を実行委員がGoogleフォームやスプレッドシートに入力するだけで、アプリ側に即時反映される運用パイプラインを構築。
+                      お知らせや落とし物情報を実行委員がGoogleスプレッドシートに入力するだけで、アプリ側に即時反映される運用パイプラインを構築。
                     </p>
                   </div>
 
