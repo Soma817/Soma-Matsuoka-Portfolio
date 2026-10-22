@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ScrollReveal from "./ScrollReveal";
+import AnalyticsInfographic from "./AnalyticsInfographic";
 
 const projectHighlights = [
   {
@@ -46,7 +47,7 @@ const featuresList = [
 ];
 
 export default function ProjectSection() {
-  const [activeTab, setActiveTab] = useState<"overview" | "case_study" | "architecture" | "leadership">("overview");
+  const [activeTab, setActiveTab] = useState<"overview" | "case_study" | "architecture" | "report" | "leadership">("overview");
 
   return (
     <section id="project" className="relative py-32 px-6">
@@ -184,6 +185,17 @@ export default function ProjectSection() {
                 }`}
               >
                 アーキテクチャ図 &amp; 技術選定
+              </button>
+              <button
+                onClick={() => setActiveTab("report")}
+                className={`pb-3 px-1 font-semibold transition-all relative shrink-0 flex items-center gap-1.5 ${
+                  activeTab === "report"
+                    ? "text-cyan-400 border-b-2 border-cyan-400"
+                    : "text-zinc-400 hover:text-white"
+                }`}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                当日レポート
               </button>
               <button
                 onClick={() => setActiveTab("leadership")}
@@ -611,7 +623,25 @@ export default function ProjectSection() {
               </div>
             )}
 
-            {/* Tab 4: Leadership */}
+            {/* Tab 4: Operation-day report */}
+            {activeTab === "report" && (
+              <div className="space-y-6 text-zinc-300 text-sm leading-relaxed animate-fade-in-up">
+                <div>
+                  <div className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-emerald-400">
+                    Operation-day report / GA4 analytics
+                  </div>
+                  <h3 className="mt-2 text-2xl font-black tracking-tight text-white sm:text-3xl">
+                    当日レポート
+                  </h3>
+                  <p className="mt-2 max-w-2xl text-xs leading-relaxed text-zinc-400 sm:text-sm">
+                    長月祭アプリの運用当日前後に取得したGoogle Analyticsデータを、利用状況・流入・機能別の視点から可視化しています。
+                  </p>
+                </div>
+                <AnalyticsInfographic />
+              </div>
+            )}
+
+            {/* Tab 5: Leadership */}
             {activeTab === "leadership" && (
               <div className="space-y-6 text-zinc-300 text-sm leading-relaxed animate-fade-in-up">
                 <div className="grid md:grid-cols-3 gap-6">
