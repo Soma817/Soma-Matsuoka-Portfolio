@@ -89,7 +89,7 @@ export default function ProjectSection() {
               <div className="flex items-start sm:items-center gap-4">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/logo-100th.svg"
+                  src="/icon.png"
                   alt="滝学園100周年ロゴ"
                   className="w-14 h-14 sm:w-16 sm:h-16 object-contain shrink-0 p-1.5 rounded-2xl bg-white/[0.04] border border-white/10 shadow-lg"
                 />
