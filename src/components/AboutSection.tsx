@@ -1,3 +1,5 @@
+import Image from "next/image";
+import profileIcon from "@/app/icon.png";
 import ScrollReveal from "./ScrollReveal";
 
 const timelineEvents = [
@@ -100,9 +102,13 @@ export default function AboutSection() {
                 <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
 
                 <div className="flex items-center gap-5">
-                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-purple-600 flex items-center justify-center text-3xl font-black text-white shadow-xl ring-2 ring-white/10 shrink-0">
-                    SM
-                  </div>
+                  <Image
+                    src={profileIcon}
+                    alt="松岡 奏磨"
+                    width={80}
+                    height={80}
+                    className="w-20 h-20 rounded-2xl object-cover shadow-xl ring-2 ring-white/10 shrink-0"
+                  />
                   <div className="space-y-1">
                     <h3 className="text-2xl font-black text-white tracking-tight">松岡 奏磨</h3>
                     <p className="text-xs font-mono text-zinc-400">
