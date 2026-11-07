@@ -18,8 +18,14 @@ const SITE_URL = "https://soma-matsuoka-portfolio.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   icons: {
-    icon: "/icon.png",
-    apple: "/icon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    shortcut: "/favicon.ico",
   },
   title: {
     default: "松岡奏磨 / Soma Matsuoka | Portfolio",
@@ -61,6 +67,14 @@ export const metadata: Metadata = {
     siteName: "松岡奏磨 Portfolio",
     locale: "ja_JP",
     type: "website",
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image.jpg`,
+        width: 1024,
+        height: 320,
+        alt: "松岡奏磨 | 長月祭アプリ開発責任者 | Portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -68,6 +82,7 @@ export const metadata: Metadata = {
     description:
       "滝学園 創立100周年記念「長月祭」公式WebアプリをReact 19/PWAで構築した開発責任者のポートフォリオ。",
     creator: "@Soma817",
+    images: [`${SITE_URL}/twitter-image.jpg`],
   },
   robots: {
     index: true,
